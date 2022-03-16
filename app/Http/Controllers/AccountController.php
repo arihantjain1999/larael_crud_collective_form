@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Account;
 use Illuminate\Http\Request;
+use App\Interface\AccountRepositoryInterface;
+// use Illuminate\Support\Facades\View;
 
 class AccountController extends Controller
 {
@@ -13,15 +14,18 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+
+    protected $accountRepo ;
+    public function __construct(AccountRepositoryInterface $account)
     {
-        $this->middleware('auth');
+        $this->accountRepo = $account;
+        // $this->middleware('auth');
     }
 
     public function index()
     {
-        $accounts = Account::orderby('id','asc')->paginate();
-        return view('account.index',compact('accounts'));
+        // $accounts = Account::orderby('id','asc')->paginate();
+        return view('account.index',['accounts' => $this->accountRepo->all()]);
     }
 
     /**
@@ -41,10 +45,24 @@ class AccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $account = new account;
+    {   $account = new account;
+        $request->validate([
+            'f_name' => 'required',
+            'l_name' => 'required',
+            'dob' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'hobby' => 'required',
+            'country' => 'required',
+        ]);
         $fields = $request->all();
-        $account->fill($fields);
+        $this->accountRepo->create($fields);
+        
+        // $account = new account;
+        // $fields = $request->all();
+        // $account->fill($fields);
         // $account = account::find($id);
         // $account->f_name = $request->f_name;
         // $account->l_name = $request->l_name;
@@ -55,7 +73,7 @@ class AccountController extends Controller
         // $account->hobby = $request->hobby;
         // $account->gender = $request->gender;
         // $account->country = $request->country;
-        $account->save();
+        // $account->save();
         return redirect()->route('account.index');
     }
 
@@ -67,8 +85,7 @@ class AccountController extends Controller
      */
     public function show(Account $account)
     {
-        return view('account.show', compact('account'));
-            
+        return view('account.show',['account'=>$this->accountRepo->find($account->id)]);
         // return view('account.show');
 
     }
@@ -81,7 +98,8 @@ class AccountController extends Controller
      */
     public function edit(Account $account)
     {
-        return view('account.edit', compact('account'));
+        $account = $this->accountRepo->find($account->id);
+        return view('account.edit',compact('account'));
     }
 
     /**
@@ -93,31 +111,11 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        // $request->validate([
-        //     'f_name' => 'required',
-        //     'l_name' => 'required',
-        //     'dob' => 'required',
-        //     'phone' => 'required',
-        //     // 'age' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required',
-        //     'gender' => 'required',
-        //     'hobby' => 'required',
-        //     'country' => 'required',
-        // ]);
-        $fields = $request->all();
-        // $account = new account;
-        $account = account::find($account->id);
-        $account->update($fields);
-        // $account->f_name = $request->f_name;
-        // $account->l_name = $request->l_name;
-        // $account->dob = $request->dob;
-        // $account->phone = $request->phone;
-        // $account->email = $request->email;
-        // $account->address = $request->address;
-        // $account->hobby = $request->hobby;
-        // $account->gender = $request->gender;
-        // $account->country = $request->country;
+        $this->accountRepo->update($account->id,$request);
+
+        // $fields = $request->all();
+        // $account = account::find($account->id);
+        // $account->update($fields);
         // $account->save();
         return redirect()->route('account.index')->with('Success','Person details has been updated successfully');
     }
@@ -130,7 +128,7 @@ class AccountController extends Controller
      */
     public function destroy(Account $account)
     {
-        $account->delete();
+        $this->accountRepo->delete($account->id);
         return redirect()->route('account.index')->with('Success','Person details has been deleted successfully');
     
     }

@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
-
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\ServiceProvider;
+use App\Interface\AccountRepositoryInterface;
+use App\Repositories\AccountRepository;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(AccountRepositoryInterface::class, AccountRepository::class);
     }
 
     /**

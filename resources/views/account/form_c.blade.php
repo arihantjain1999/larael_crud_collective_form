@@ -6,6 +6,15 @@
                                 <!-- <input type="text" name="f_name" class="form-control" value="{{$account->f_name??''}}" placeholder="first Name" required> -->
                                 {!! Form::text('f_name',$account-> f_name??'' , ['placeholder' => 'First Name' , 'class'=>'form-control']); !!}
                         </div>
+                            @error('f_name')
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @enderror    
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -15,6 +24,9 @@
                             <div class="col-sm-5">
                                 {!! Form::text('l_name',$account-> l_name??'' , ['placeholder' => 'Last Name' , 'class'=>'form-control']); !!}
                             </div>
+                            @error('l_name')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror    
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -24,6 +36,9 @@
                             <div class="col-sm-5">
                                 {!!Form::date('dob', $account->dob??'' , ['class'=>'form-control'] );!!}
                             </div>
+                            @error('dob')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,6 +48,9 @@
                             <div class="col-sm-5">
                                 {!! Form::tel('phone', $account->phone??'' , ['placeholder' => 'Phone Number' , 'class'=>'form-control']); !!}
                             </div>
+                            @error('phone')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -42,6 +60,9 @@
                             <div class="col-sm-5">
                                 {!!Form::text('email', $account->email??'', ['placeholder' => 'abc@gmail.com' , 'class'=>'form-control']); !!}
                             </div>
+                            @error('email')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -51,7 +72,9 @@
                             <div class="col-sm-5">
                                 {!! Form::textarea('address',$account-> address??'' , ['placeholder' => 'Address', 'rows' => '2', 'cols' =>'25' , 'class'=>'form-control']); !!}
                             </div>
-                            
+                            @error('address')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     
@@ -69,6 +92,9 @@
                                     Female
                             </div>
                         </div>
+                        @error('gender')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
@@ -84,6 +110,9 @@
                                     Art
                             </div>
                         </div>
+                        @error('hobby')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Country</label>

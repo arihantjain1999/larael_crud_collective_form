@@ -18,7 +18,7 @@
                 </div>
             @endif
             <!-- <form action="{{ route('account.update',$account->id) }}" method="POST" enctype="multipart/form-data"> -->
-            {!!Form::model($account,['route' => ['account.update' , $account->id] ] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
+            {!!Form::model($account,['route' => ['account.update' , $account->id] ,'method'=>'POST'])!!}
 
                 @csrf
                 @method('PUT')

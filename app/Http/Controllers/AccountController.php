@@ -19,7 +19,7 @@ class AccountController extends Controller
     public function __construct(AccountRepositoryInterface $account)
     {
         $this->accountRepo = $account;
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()

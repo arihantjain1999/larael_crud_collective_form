@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left mb-2">
-                        <h2>Add Account Details</h2>
+                        <h2>Add Project Details</h2>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-success" href="{{ route('account.index') }}">Show all Account Records</a>
+                        <a class="btn btn-success" href="{{ route('project.index') }}">Show all Projects</a>
                     </div>
                 </div>
             </div>
@@ -17,10 +17,8 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <!-- <form action="{{ route('account.store') }}" method="POST" enctype="multipart/form-data"> -->
-                {!!Form::open(['route' => 'account.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
+                {!!Form::open(['route' => 'project.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
-                @include('account.form_c')
+                @include('project.form_c')
                 {!! Form::close() !!}
-            <!-- </form> -->
 @endsection

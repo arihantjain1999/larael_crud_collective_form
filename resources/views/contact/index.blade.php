@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Accounts All Data</h2>
+                        <h2>Contacts All Data</h2>
                     </div>
                     <div class="pull-right mb-2">
-                        <a class="btn btn-success" href="{{ route('account.create') }}"> Create Account</a>
+                        <a class="btn btn-success" href="{{ route('contact.create') }}"> Create Contact Details</a>
                     </div>
                 </div>
             </div>
@@ -26,10 +26,7 @@
                 <table class="table table-bordered shadow text-center table-striped">
                     <tr>
                         <th>S.No</th>
-                        <th>Full_Name</th>
-                        <th>f_Name</th>
-                        <th>l_Name</th>
-                        <!-- <th>DOB</th> -->
+                        <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <!-- <th>Address</th> -->
@@ -38,23 +35,16 @@
                         <!-- <th>Country</th> -->
                         <th width="280px">Action</th>
                     </tr>         
-                    @foreach ($accounts as $account)
+                    @foreach ($contacts as $contact)
                 <tr>
-                    <td>{{ $account->id }}</td>
-                    <td>{{ $account->f_name }} {{ $account->l_name }}</td>
-                    <td>{{ $account->f_name }}</td>
-                    <td>{{ $account->l_name }}</td>
-                    <!-- <td>{{ $account->dob }}</td> -->
-                    <td>{{ $account->phone }}</td>
-                    <td>{{ $account->email }}</td>
-                    <!-- <td>{{ $account->address }}</td> -->
-                    <!-- <td>{{ $account->hobby }}</td> -->
-                    <!-- <td>{{ $account->gender }}</td> -->
-                    <!-- <td>{{ $account->country }}</td> -->
+                    <td>{{ $contact->id }}</td>
+                    <td>{{ $contact->name }} </td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->phone }}</td> 
                     <td>
-                        <form action="{{ route('account.destroy',$account->id) }}" method="Post">
-                            <a class="btn btn-primary" href="{{ route('account.show',$account->id) }}">Show</a>
-                            <a class="btn btn-warning" href="{{ route('account.edit',$account->id) }}">Edit</a>
+                        <form action="{{ route('contact.destroy',$contact->id) }}" method="Post">
+                            <a class="btn btn-primary" href="{{ route('contact.show',$contact->id) }}">Show</a>
+                            <a class="btn btn-warning" href="{{ route('contact.edit',$contact->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>

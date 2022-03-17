@@ -16,13 +16,5 @@ class Account extends Model
     }
     protected $primaryKey='id';
     protected $keyType = "string";
-    public $incrementing = "false";
-    // protected static function boot(){
-    //     parent::boot();
-    //     static::creating(function($model){
-    //         if(empty($model->uuid)){
-    //             $model->uuid=Str::uuid();
-    //         }
-    //     });
-    // }
+    public $incrementing = false;
 }

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -31,8 +32,14 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                    <ul class="navbar-nav">
+                        <a class="btn btn-primary mx-2" href="{{ route('account.index') }}">Accounts</a>
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <a class="btn btn-secondary mx-2" href="{{ route('project.index') }}">Projects</a>
+                    </ul>
+                    <ul class="navbar-nav ">
+                        <a class="btn btn-info mx-2" href="{{ route('contact.index') }}">Contact</a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

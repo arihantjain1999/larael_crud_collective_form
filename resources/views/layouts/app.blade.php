@@ -32,6 +32,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if(Auth::check())
                     <ul class="navbar-nav">
                         <a class="btn btn-primary mx-2" href="{{ route('account.index') }}">Accounts</a>
                     </ul>
@@ -41,6 +42,7 @@
                     <ul class="navbar-nav ">
                         <a class="btn btn-info mx-2" href="{{ route('contact.index') }}">Contact</a>
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -69,6 +71,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('user.show',Auth::user()->id)}}">
+                                        User
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -80,7 +85,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>

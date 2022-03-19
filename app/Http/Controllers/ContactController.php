@@ -19,7 +19,7 @@ class ContactController extends Controller
     public function __construct(ContactRepositoryInterface $contact)
     {
         $this->contactRepo = $contact;
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()

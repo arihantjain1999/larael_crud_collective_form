@@ -37,6 +37,7 @@
                 </div>
             </form>
             <form action="{{ route('user.destroy',$user->id) }}" method="Post">
+                            <a class="btn btn-primary" href="{{ route('user.index') }}">Back</a>
                             <a class="btn btn-warning" href="{{ route('user.edit',$user->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')

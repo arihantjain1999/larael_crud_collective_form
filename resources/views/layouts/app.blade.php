@@ -42,6 +42,9 @@
                     <ul class="navbar-nav ">
                         <a class="btn btn-info mx-2" href="{{ route('contact.index') }}">Contact</a>
                     </ul>
+                    <ul class="navbar-nav ">
+                        <a class="btn btn-warning mx-2" href="{{ route('user.index') }}">Admin</a>
+                    </ul>
                     @endif
 
                     <!-- Right Side Of Navbar -->

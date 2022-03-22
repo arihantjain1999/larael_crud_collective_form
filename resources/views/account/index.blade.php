@@ -32,10 +32,12 @@
                         <!-- <th>DOB</th> -->
                         <th>Phone</th>
                         <th>Email</th>
+                        <th>Contact releted </th>
                         <!-- <th>Address</th> -->
                         <!-- <th>Hobby</th> -->
                         <!-- <th>Gender</th> -->
                         <!-- <th>Country</th> -->
+                        
                         <th width="280px">Action</th>
                     </tr>         
                     @foreach ($accounts as $account)
@@ -51,6 +53,15 @@
                     <!-- <td>{{ $account->hobby }}</td> -->
                     <!-- <td>{{ $account->gender }}</td> -->
                     <!-- <td>{{ $account->country }}</td> -->
+                    <td><div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong> 
+                            @foreach ($account->contacts as $name)
+                                {{$name->name}}<br>
+                            @endforeach
+                        </strong>
+                        </div>
+                    </div></td>
                     <td>
                         <form action="{{ route('account.destroy',$account->id) }}" method="Post">
                             <a class="btn btn-primary" href="{{ route('account.show',$account->id) }}">Show</a>

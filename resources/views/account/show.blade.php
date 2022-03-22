@@ -72,6 +72,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong> Contact Names : 
+                        @foreach ($account->contacts as $name)
+                            {{$name->name}}<br>
+                        @endforeach
+                    </strong>
+                    </div>
+                </div>
+                
             </form>
             <form action="{{ route('account.destroy',$account->id) }}" method="Post">
                             <a class="btn btn-primary" href="{{ route('account.index') }}">Back</a>

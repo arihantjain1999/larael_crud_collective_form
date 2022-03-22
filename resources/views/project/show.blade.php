@@ -35,6 +35,13 @@
                             <strong>Starting Date : {{$project->s_date}}</strong>
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong> Project Names : 
+                            @foreach ($project->contacts as $name)
+                                {{$name->name}}<br>
+                            @endforeach
+                        </strong>
                  </div>
             </form>
             <form action="{{ route('project.destroy',$project->id) }}" method="Post">

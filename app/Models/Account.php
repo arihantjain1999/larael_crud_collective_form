@@ -17,4 +17,7 @@ class Account extends Model
     protected $primaryKey='id';
     protected $keyType = "string";
     public $incrementing = false;
+    public function contacts(){
+        return $this->belongsToMany(Contact::class);
+    }
 }

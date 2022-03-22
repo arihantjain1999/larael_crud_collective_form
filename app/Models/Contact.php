@@ -13,4 +13,10 @@ class Contact extends Model
     protected $primaryKey='id';
     protected $keyType = "string";
     public $incrementing = false;
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
+    public function account(){
+        return $this->belongsToMany(Account::class);
+    }
 }

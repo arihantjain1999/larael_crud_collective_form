@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body{
+            background-image: linear-gradient( to right,#C9D6FF,#E2E2E2);
+            color: black;
+        }
+        .table-bordered{
+            border: 2px solid rgb(77, 76, 76);
+        }
+    </style>
 </head>
 <body>
     <div id="app">

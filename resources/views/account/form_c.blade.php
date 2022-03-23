@@ -70,7 +70,7 @@
                             <strong>Address:</strong>
                             <!-- <input type="text-box" name="address" class="form-control" value="{{$account->address??''}}" placeholder="Address"  required> -->
                             <div class="col-sm-5">
-                                {!! Form::textarea('address',$account-> address??'' , ['placeholder' => 'Address', 'rows' => '2', 'cols' =>'25' , 'class'=>'form-control']); !!}
+                                {!! Form::textarea('address',$account->address??'' , ['placeholder' => 'Address', 'rows' => '2', 'cols' =>'25' , 'class'=>'form-control']); !!}
                             </div>
                             @error('address')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -127,6 +127,23 @@
                         <option value="russia">russia</option>
                         </select> -->
                     </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Country</label>
+                        <div class="col-sm-5">
+                               @php
+                                   $accounts = DB::table('contacts')->select('name','id')->get();
+                               @endphp
+                                {{-- @dd($account); --}}
+                                {{-- @foreach ($accounts as $account)
+                                    
+                                <div class="form-group{{ $errors->has('select') ? ' has-error' : '' }}">
+                                    {!! Form::label('select', $account->f_name) !!}
+                                    {!! Form::select('select', $account->id, null, ['id' => 'select', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+                                    <small class="text-danger">{{ $errors->first('select') }}</small>
+                                </div>
+                                @endforeach --}}
+                        </div>
+                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->
                        

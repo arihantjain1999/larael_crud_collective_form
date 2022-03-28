@@ -17,6 +17,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
@@ -25,7 +26,7 @@
             @endif
                 <table class="table table-bordered table-hover shadow text-center">
                     <tr>
-                        <th>S.No</th>
+                        {{-- <th>S.No</th> --}}
                         <th>Full_Name</th>
                         <th>f_Name</th>
                         <th>l_Name</th>
@@ -42,7 +43,7 @@
                     </tr>         
                     @foreach ($accounts as $account)
                 <tr>
-                    <td>{{ $account->id }}</td>
+                    {{-- <td>{{ $account->id }}</td> --}}
                     <td>{{ $account->f_name }} {{ $account->l_name }}</td>
                     <td>{{ $account->f_name }}</td>
                     <td>{{ $account->l_name }}</td>
@@ -56,9 +57,9 @@
                     <td><div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong> 
-                            @foreach ($account->contacts as $name)
+                            {{-- @foreach ($account->contacts as $name)
                                 {{$name->name}}<br>
-                            @endforeach
+                            @endforeach --}}
                         </strong>
                         </div>
                     </div></td>
@@ -73,7 +74,18 @@
                     </td>
                 </tr>
             @endforeach</tr>
+           
         
         </table>
+        <center>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+              {{-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> --}}
+              <li class="page-item">{{ $accounts->render() }}</li>
+              {{-- <li class="page-item"><a class="page-link" href="#">Next</a></li> --}}
+            </ul>
+        </nav>
+    </center>
 @endsection
    

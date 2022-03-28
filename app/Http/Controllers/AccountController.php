@@ -5,6 +5,7 @@ use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Interface\AccountRepositoryInterface;
 // use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -25,7 +26,9 @@ class AccountController extends Controller
     public function index()
     {
         // $accounts = Account::orderby('id','asc')->paginate();
-        return view('account.index',['accounts' => $this->accountRepo->all()]);
+        $field = false; 
+        $fields = ['id', 'f_name','l_name','dob','phone','email','address','hobby','gender','country']; 
+        return view('account.index', ['accounts' => DB::table('accounts')->paginate(5)], ['accounts' => $this->accountRepo->all("*")] );
     }
 
     /**
@@ -111,13 +114,18 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $this->accountRepo->update($account->id,$request);
-
+        
+        $fields = $request->all();
+        // $account = new account;
+        $account = account::find($account->id);
+        $account->update($fields);
+       
+        return redirect()->route('account.index')->with('Success','Person details has been updated successfully');
+  
         // $fields = $request->all();
         // $account = account::find($account->id);
         // $account->update($fields);
         // $account->save();
-        return redirect()->route('account.index')->with('Success','Person details has been updated successfully');
     }
 
     /**

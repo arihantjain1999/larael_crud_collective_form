@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\API\SetDataController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\ServiceProvider;

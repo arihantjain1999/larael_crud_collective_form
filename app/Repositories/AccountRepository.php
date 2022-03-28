@@ -7,35 +7,31 @@ use App\Interface\AccountRepositoryInterface;
 
 class AccountRepository implements AccountRepositoryInterface 
 {
-    public function all(){
-        $accounts = Account::all();
-        
+    public function all($fields){
+        $accounts = Account::all($fields);
         return $accounts;
     }
+   
     public function find($id){
+      
         $account = Account::find($id);
-        // $account = Contact::find($id)->;
-        // dd($account);
         return $account;
     }
-    public function update($id,$request){
-        $fields = $request->all();
-        // $account = new account;
-        $account = account::find($id);
-        $account->update($fields);
-       
-        return redirect()->route('account.index')->with('Success','Person details has been updated successfully');
-  
+    public function update($id,$input){
+        $account = Account::find($id);
+        $account->update($input);
+        return (Account::find($id));
+        
     }
     public function delete($id){
-        return Account::find($id)->delete();
+        // dd($id);
+        $account = Account::find($id);
+        $account->delete();
+        return true;
     }
     public function create($data)
     {
-        Account::create($data);{
-            $contact = Contact::find('9928cc00-5fb8-4026-a182-f1f67bcb79a5');
-            $accounts = Account::with('contacts')->first();
-            $accounts->contacts()->attach($contact);
-        }
-   }
+        $account = Account::create($data);
+        return $account;
+    }
 }

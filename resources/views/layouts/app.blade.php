@@ -20,17 +20,23 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body{
-            background-image: linear-gradient( to right,#C9D6FF,#E2E2E2);
+            background-image: linear-gradient( to right,#C9D6FF,#E2E2E2) ;
+            /* background-repeat: repeat-x ; */
             color: black;
         }
         .table-bordered{
             border: 2px solid rgb(77, 76, 76);
         }
+        /* .navbar{
+            position: fixed;
+            top: 0%;
+            width: 100%;
+        } */
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md  navbar-dark bg-dark shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}

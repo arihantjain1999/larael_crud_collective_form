@@ -27,11 +27,11 @@
                 <table class="table table-bordered table-hover shadow text-center">
                     <tr>
                         {{-- <th>S.No</th> --}}
-                        <th>Full_Name</th>
+                        {{-- <th>Full_Name</th> --}}
                         <th>f_Name</th>
                         <th>l_Name</th>
                         <!-- <th>DOB</th> -->
-                        <th>Phone</th>
+                        {{-- <th>Phone</th> --}}
                         <th>Email</th>
                         <th>Contact releted </th>
                         <!-- <th>Address</th> -->
@@ -44,25 +44,27 @@
                     @foreach ($accounts as $account)
                 <tr>
                     {{-- <td>{{ $account->id }}</td> --}}
-                    <td>{{ $account->f_name }} {{ $account->l_name }}</td>
+                    {{-- <td>{{ $account->f_name }} {{ $account->l_name }}</td> --}}
                     <td>{{ $account->f_name }}</td>
                     <td>{{ $account->l_name }}</td>
                     <!-- <td>{{ $account->dob }}</td> -->
-                    <td>{{ $account->phone }}</td>
+                    {{-- <td>{{ $account->phone }}</td> --}}
                     <td>{{ $account->email }}</td>
                     <!-- <td>{{ $account->address }}</td> -->
                     <!-- <td>{{ $account->hobby }}</td> -->
                     <!-- <td>{{ $account->gender }}</td> -->
                     <!-- <td>{{ $account->country }}</td> -->
-                    <td><div class="col-xs-12 col-sm-12 col-md-12">
+                    <td>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong> 
-                            {{-- @foreach ($account->contacts as $name)
-                                {{$name->name}}<br>
-                            @endforeach --}}
-                        </strong>
+                            @foreach ($account->contacts as $name)
+                                        {{$name->name}}<br>
+                             @endforeach
+                                </strong>
+                            </div>
                         </div>
-                    </div></td>
+                    </td>
                     <td>
                         <form action="{{ route('account.destroy',$account->id) }}" method="Post">
                             <a class="btn btn-primary" href="{{ route('account.show',$account->id) }}">Show</a>
@@ -77,15 +79,15 @@
            
         
         </table>
-        <center>
+        {{-- <center>
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-              {{-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> --}}
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
               <li class="page-item">{{ $accounts->render() }}</li>
-              {{-- <li class="page-item"><a class="page-link" href="#">Next</a></li> --}}
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
-    </center>
+    </center> --}}
 @endsection
    

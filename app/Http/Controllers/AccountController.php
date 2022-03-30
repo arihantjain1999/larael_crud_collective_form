@@ -28,7 +28,8 @@ class AccountController extends Controller
         // $accounts = Account::orderby('id','asc')->paginate();
         $field = false; 
         $fields = ['id', 'f_name','l_name','dob','phone','email','address','hobby','gender','country']; 
-        return view('account.index', ['accounts' => DB::table('accounts')->paginate(5)], ['accounts' => $this->accountRepo->all("*")] );
+        return view('account.index' , ['accounts' => $this->accountRepo->all("*")] );
+        // , ['accounts' => DB::table('accounts')->paginate(5)],
     }
 
     /**

@@ -128,20 +128,16 @@
                         </select> -->
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Country</label>
+                        <label for="exampleFormControlSelect1">Contacts :</label>
                         <div class="col-sm-5">
                                @php
-                                   $accounts = DB::table('contacts')->select('name','id')->get();
-                               @endphp
-                                {{-- @dd($account); --}}
-                                {{-- @foreach ($accounts as $account)
-                                    
-                                <div class="form-group{{ $errors->has('select') ? ' has-error' : '' }}">
-                                    {!! Form::label('select', $account->f_name) !!}
-                                    {!! Form::select('select', $account->id, null, ['id' => 'select', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
-                                    <small class="text-danger">{{ $errors->first('select') }}</small>
-                                </div>
-                                @endforeach --}}
+                                   $contacts = DB::table('contacts')->select('name','id')->get();
+                               @endphp                                    
+                                <select class="form-control" name="categoria">
+                                    @foreach($contacts as $contact) 
+                                    <option value= " {{ $contact->id }} "> {{$contact->name}} </option>
+                                    @endforeach
+                                </select>
                         </div>
                      </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">

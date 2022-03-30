@@ -23,7 +23,7 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-                <table class="table table-bordered shadow table-hover text-center">
+                <table class="table table-bordered shadow table-hover text-center w-auto">
                     <tr>
                         <th>S.No</th>
                         <th>Name</th>

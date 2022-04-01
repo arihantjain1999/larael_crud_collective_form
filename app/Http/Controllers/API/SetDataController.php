@@ -20,7 +20,7 @@ class SetDataController extends Controller
     public function create(Request $request){
         $input = $request->input_request;
         $data = $this->modelRepo->create($input);
-
+        // dd($data);
         $fulldata = ['model' => $request->module_name ,  'id' => $data['id'],  'created' => $data  ];
         return json_encode($fulldata);
     }

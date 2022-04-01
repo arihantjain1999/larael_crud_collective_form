@@ -79,15 +79,11 @@
            
         
         </table>
-        {{-- <center>
-
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item">{{ $accounts->render() }}</li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
-    </center> --}}
+    
+{{-- 
+            <div class="text-center"> 
+                    <ul class="page-item">{{ $accounts->render() }}</ul>
+            </div> --}}
+    
 @endsection
    

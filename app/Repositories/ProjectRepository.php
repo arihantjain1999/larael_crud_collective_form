@@ -27,6 +27,7 @@ class ProjectRepository implements ProjectRepositoryInterface
     }
     public function create($data){
      
-        Project::create($data);
-   }
+       $data =  Project::create($data);
+        return $data ;
+    }
 }

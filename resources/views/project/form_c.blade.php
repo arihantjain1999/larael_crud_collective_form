@@ -46,7 +46,19 @@
                             {!! Form::select('country', ['India' => 'India', 'Russia' => 'Russia', 'America' => 'America', 'Poland' => 'Poland'], null, ['class'=>'form-control']); !!}
                         </div>
                         
-                        
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Contacts :</label>
+                            <div class="col-sm-5">
+                                   @php
+                                       $accounts = DB::table('contacts')->select('name','id')->get();
+                                   @endphp                                    
+                                    <select class="form-control" name="Contact_id">
+                                        @foreach($accounts as $account) 
+                                        <option value= " {{ $account->id }} "> {{$account->name}} </option>
+                                        @endforeach
+                                    </select>
+                            </div>
+                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->

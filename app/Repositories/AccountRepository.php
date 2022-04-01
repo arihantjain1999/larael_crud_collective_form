@@ -31,6 +31,7 @@ class AccountRepository implements AccountRepositoryInterface
     }
     public function create($data)
     {
+        // dd($data);
         $account = Account::create($data);
         return $account;
     }

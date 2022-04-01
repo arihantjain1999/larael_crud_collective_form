@@ -5,9 +5,10 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasUuid;
+use App\Traits\Relation;
 class Contact extends Model
 {
-    use HasFactory ,HasUuid;
+    use HasFactory ,HasUuid ,Relation;
     public $table = "contacts";
     protected $fillable = ['name','phone','email'];
     protected $primaryKey='id';

@@ -43,6 +43,7 @@
                             @endforeach
                         </strong>
                  </div>
+                 
             </form>
             <form action="{{ route('project.destroy',$project->id) }}" method="Post">
                             <a class="btn btn-primary" href="{{ route('project.index') }}">Back</a>

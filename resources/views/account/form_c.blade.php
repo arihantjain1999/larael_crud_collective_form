@@ -133,7 +133,7 @@
                                @php
                                    $contacts = DB::table('contacts')->select('name','id')->get();
                                @endphp                                    
-                                <select class="form-control" name="categoria">
+                                <select class="form-control" name="Contact_id">
                                     @foreach($contacts as $contact) 
                                     <option value= " {{ $contact->id }} "> {{$contact->name}} </option>
                                     @endforeach

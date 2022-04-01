@@ -31,6 +31,7 @@
                         <th>Company</th>
                         <th>Starting date</th>
                         <th>Country</th>
+                        <th>Contacts</th>
                         <!-- <th>Address</th> -->
                         <!-- <th>Hobby</th> -->
                         <!-- <th>Gender</th> -->
@@ -44,6 +45,14 @@
                     <td>{{ $project->company }}</td>
                     <td>{{ $project->s_date }}</td> 
                     <td>{{ $project->country }}</td>
+                    <td><div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>
+                            @foreach ($project->contacts as $name)
+                                {{$name->name}}<br>
+                            @endforeach
+                        </strong>
+                        </div></td>
                     <td>
                         <form action="{{ route('project.destroy',$project->id) }}" method="Post">
                             <a class="btn btn-primary" href="{{ route('project.show',$project->id) }}">Show</a>

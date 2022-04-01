@@ -63,7 +63,7 @@ class AccountController extends Controller
         ]);
         $fields = $request->all();
         $this->accountRepo->create($fields);
-        
+    
         // $account = new account;
         // $fields = $request->all();
         // $account->fill($fields);

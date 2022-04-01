@@ -50,11 +50,11 @@
                             <label for="exampleFormControlSelect1">Contacts :</label>
                             <div class="col-sm-5">
                                    @php
-                                       $accounts = DB::table('contacts')->select('name','id')->get();
+                                       $contacts = DB::table('contacts')->select('name','id')->get();
                                    @endphp                                    
                                     <select class="form-control" name="Contact_id">
-                                        @foreach($accounts as $account) 
-                                        <option value= " {{ $account->id }} "> {{$account->name}} </option>
+                                        @foreach($contacts as $contact) 
+                                        <option value= " {{ $contact->id }} "> {{$contact->name}} </option>
                                         @endforeach
                                     </select>
                             </div>

@@ -30,6 +30,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Account releted</th>
+                        <th>Project releted</th>
                         <!-- <th>Address</th> -->
                         <!-- <th>Hobby</th> -->
                         <!-- <th>Gender</th> -->
@@ -47,6 +48,14 @@
                             <strong>
                             @foreach ($contact->account as $name)
                                 {{$name->f_name}}<br>
+                            @endforeach
+                        </strong>
+                        </div></td>
+                    <td><div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>
+                            @foreach ($contact->projects as $name)
+                                {{$name->p_name}}<br>
                             @endforeach
                         </strong>
                         </div></td>

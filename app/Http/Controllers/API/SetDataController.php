@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 use App\Models\Account;
-
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Support\Facades\App;

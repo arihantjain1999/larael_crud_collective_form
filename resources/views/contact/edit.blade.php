@@ -22,6 +22,25 @@
                 @csrf
                 @method('PUT')
                 @include('contact.form_c')
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Relation with Contacts :</label>
+                    <div class="col-sm-5">
+                           @php
+                               $contacta = DB::table('account_contact')->select('account_id')->where('contact_id',$contact->id)->get();
+                                // dd($contacta);
+                          @endphp                                    
+                            <select class="form-control" name="Account_detach_id">  
+                                <option value="null">None</option>
+                                @foreach($contacta as $contact) 
+                                @php
+                                    $contact_name = DB::table('accounts')->select('f_name')->where('id',$contact->account_id)->get();
+                                @endphp
+                                <option value= " {{ $contact->account_id }} "> {{$contact_name}}</option>
+                                @endforeach
+                            </select>
+                    </div>
+                 </div>
+                {!!Form::submit('Create Contact' , ['class'=>'btn btn-primary ml-3']);!!}
                 {!! Form::close() !!}
         </div>
 @endsection

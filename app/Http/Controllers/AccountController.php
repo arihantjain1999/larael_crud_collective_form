@@ -115,7 +115,8 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        
+
+        // dd($request->all());        
         $fields = $request->all();
         // $account = new account;
         $account = account::find($account->id);

@@ -41,10 +41,12 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Contacts :</label>
                         <div class="col-sm-5">
+                               
                                @php
                                    $accounts = DB::table('accounts')->select('f_name','id')->get();
                                @endphp                                    
                                 <select class="form-control" name="Account_id">
+                                    <option value="null">None</option>
                                     @foreach($accounts as $account) 
                                     <option value= " {{ $account->id }} "> {{$account->f_name}} </option>
                                     @endforeach
@@ -53,6 +55,6 @@
                      </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                        
-                        {!!Form::submit('Create Contact' , ['class'=>'btn btn-primary ml-3']);!!}
+                        {{-- {!!Form::submit('Create Contact' , ['class'=>'btn btn-primary ml-3']);!!} --}}
                     </div>
                 </div>

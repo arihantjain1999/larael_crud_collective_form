@@ -20,5 +20,15 @@
                 {!!Form::open(['route' => 'contact.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
                 @include('contact.form_c')
+                <div class="form-group d-none">
+                    <label for="exampleFormControlSelect1">Relation with Contacts :</label>
+                    <div class="col-sm-5">
+                            <select class="form-control" name="Account_detach_id">  
+                                <option value="null">None</option>
+                            </select>
+                    </div>
+                 </div>
+                {!!Form::submit('Create Contact' , ['class'=>'btn btn-primary ml-3']);!!}
+
                 {!! Form::close() !!}
 @endsection

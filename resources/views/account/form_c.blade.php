@@ -134,16 +134,16 @@
                                    $contacts = DB::table('contacts')->select('name','id')->get();
                                @endphp                                    
                                 <select class="form-control" name="Contact_id">
+                                    <option value="null">None</option>
                                     @foreach($contacts as $contact) 
                                     <option value= " {{ $contact->id }} "> {{$contact->name}} </option>
                                     @endforeach
                                 </select>
                         </div>
                      </div>
-                    
                     <div class="col-xs-12 col-sm-12 col-md-12 my-2">
                         <!-- <button type="submit" class="btn btn-primary ml-3">Submit</button> -->
                        
-                        {!!Form::submit('Create Account' , ['class'=>'btn btn-primary ml-3']);!!}
+                        {{-- {!!Form::submit('Create Account' , ['class'=>'btn btn-primary ml-3']);!!} --}}
                     </div>
                 </div>

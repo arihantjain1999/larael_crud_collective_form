@@ -21,6 +21,17 @@
                 {!!Form::open(['route' => 'account.store'] , ['method'=>'POST' , 'enctype'=>'multipart/form-data'])!!}
                 @csrf
                 @include('account.form_c')
+                <div class="form-group d-none">
+                    <label for="exampleFormControlSelect1">Relation with Contacts :</label>
+                    <div class="col-sm-5">
+                            <select class="form-control" name="Account_detach_id">  
+                                <option value="null">None</option>
+                            </select>
+                    </div>
+                 </div>
+                {!!Form::submit('Create Account' , ['class'=>'btn btn-primary ml-3']);!!}
+
                 {!! Form::close() !!}
             <!-- </form> -->
+            
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as Controller;
 use Illuminate\Support\Facades\App;
 use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth ;
 
 class ApiLoginController extends Controller
 {
@@ -30,13 +31,22 @@ class ApiLoginController extends Controller
             'email'=>$request->email,
             'password'=>$request->password,
         ];
-        if(auth()->attempt($login_credentials)){
+        // if(auth()->attempt($login_credentials)){
+            if(Auth::attempt($login_credentials))
+            {
+            //     $userId = Auth::id();
+            //     $user = User::find($userId);
+            //     $token = $user->createToken($userId);
+            //     $token = $token->accessToken;   
+            //     $token = $token->token->id;   
+                // dd($user, $token);
             //generate the token for the user
             $user_login_token= auth()->user()->createToken($request->email)->accessToken;
             //now return this token on success login attempt 
-            $data = DB::table('users')->where('email' , $request->email)->get();
-            $fulldata = ['model' => $request->module_name ,'token' => $user_login_token['token'] ,'login_user_data' => $data ];
-            return response()->json($fulldata, 200);
+            // $data = DB::table('users')->where('email' , $request->email)->get();
+            // $data['token'] = $user_login_token['token'];
+            // $fulldata = ['model' => $request->Model ,'data' => $data ];
+            return response()->json( ['token' => $user_login_token], 200);
         }
         else{
             //wrong login credentials, return, user not authorised to our system, return error code 401

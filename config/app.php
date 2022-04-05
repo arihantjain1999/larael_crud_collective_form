@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div>
-                <div class="container mt-2">
+                <div class="container mt-2 bgc">
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
@@ -25,7 +25,7 @@
             @endif
                 <table class="table table-bordered shadow table-hover text-center w-auto">
                     <tr>
-                        <th>S.No</th>
+                        {{-- <th>S.No</th> --}}
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
@@ -39,7 +39,7 @@
                     </tr>         
                     @foreach ($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->id }}</td>
+                    {{-- <td>{{ $contact->id }}</td> --}}
                     <td>{{ $contact->name }} </td>
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->phone }}</td> 

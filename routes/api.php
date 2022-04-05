@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\SetDataController;
 use App\Http\Controllers\API\ApiLoginController;
+use Laravel\Passport\Passport;
 /*
 |--------------------------------------------------------------------------
 | API Routes

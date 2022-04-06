@@ -35,5 +35,7 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/update',[SetDataController::class,'update']);
     Route::get('/show',[SetDataController::class,'show']);
     Route::get('/index',[SetDataController::class,'index']);
+    Route::post('/logout',[ApiLoginController::class,'logout']);
+
 });
 
